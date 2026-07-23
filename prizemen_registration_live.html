@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prizemen Christian Academy — Student Registration 2026–2027</title>
+<style>
+:root{--burg:#6B0F1A;--burg-light:#8B1523;--gold:#C9A84C;--gold-light:#e0c06a;--gold-pale:#f5ecd0;--onyx:#0d0d0d;--onyx2:#1a1a1a;--offwhite:#f7f4ee;--cream:#fdf9f0;--muted:#6b6258;--r:8px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Georgia',serif;background:var(--onyx);color:#1a1a1a;min-height:100vh;}
+.hdr{background:var(--onyx);border-bottom:3px solid var(--gold);padding:14px 22px;display:flex;align-items:center;gap:14px;}
+.hdr-crest{width:58px;height:58px;background:var(--burg);border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.hdr-text h1{color:var(--gold);font-size:19px;letter-spacing:2px;text-transform:uppercase;font-family:Arial,sans-serif;font-weight:900;}
+.hdr-text p{color:#aaa;font-size:11px;letter-spacing:2px;margin-top:2px;font-family:Arial,sans-serif;}
+.hdr-right{margin-left:auto;text-align:right;}
+.hdr-right .tag{color:var(--gold);font-size:10px;letter-spacing:2px;font-family:Arial,sans-serif;line-height:1.7;}
+.hdr-right .yr{color:#888;font-size:10px;font-family:Arial,sans-serif;}
+.nav{background:var(--onyx2);display:flex;border-bottom:2px solid var(--gold);}
+.ntab{padding:11px 22px;color:#888;cursor:pointer;font-size:12px;font-family:Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .2s;user-select:none;}
+.ntab:hover{color:var(--gold);}
+.ntab.active{color:var(--gold);border-bottom-color:var(--gold);background:var(--onyx);}
+.main{background:var(--offwhite);min-height:calc(100vh - 114px);}
+.wrap{max-width:900px;margin:0 auto;padding:22px;}
+.progress{display:flex;align-items:center;gap:4px;padding:16px 0 6px;}
+.sdot{width:26px;height:26px;border-radius:50%;border:2px solid #ccc;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#bbb;font-family:Arial,sans-serif;flex-shrink:0;transition:all .25s;}
+.sdot.done{background:var(--burg);border-color:var(--burg);color:#fff;}
+.sdot.active{background:var(--gold);border-color:var(--gold);color:var(--onyx);}
+.sline{flex:1;height:2px;background:#ddd;transition:background .25s;}
+.sline.done{background:var(--burg);}
+.slabels{display:flex;justify-content:space-between;margin-bottom:16px;}
+.slbl{font-size:8px;color:var(--muted);text-align:center;font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:.2px;width:50px;}
+.card{background:#fff;border-radius:12px;border:1px solid #e2d9c5;margin-bottom:18px;overflow:hidden;}
+.card-hdr{background:var(--onyx);padding:13px 18px;display:flex;align-items:center;gap:10px;border-bottom:2px solid var(--gold);}
+.card-hdr .sn{background:var(--gold);color:var(--onyx);width:25px;height:25px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;font-family:Arial,sans-serif;flex-shrink:0;}
+.card-hdr h2{color:var(--gold);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-family:Arial,sans-serif;font-weight:700;}
+.card-body{padding:20px;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px;}
+.gf{grid-column:1/-1;}
+@media(max-width:600px){.g2,.g3{grid-template-columns:1fr;}.gf{grid-column:1;}}
+.fld{display:flex;flex-direction:column;gap:4px;}
+.fld label{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;font-family:Arial,sans-serif;}
+.fld label .opt{color:#bbb;font-weight:400;text-transform:none;font-size:10px;}
+.fld input,.fld select{border:1.5px solid #ddd;border-radius:var(--r);padding:9px 12px;font-size:13px;font-family:Arial,sans-serif;color:#1a1a1a;background:#fff;outline:none;transition:border-color .2s;width:100%;}
+.fld input:focus,.fld select:focus{border-color:var(--gold);}
+.fld input::placeholder{color:#ccc;}
+.upload-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:560px){.upload-grid{grid-template-columns:1fr;}}
+.up-item{border:1.5px dashed #ccc;border-radius:var(--r);padding:11px 13px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:all .2s;position:relative;background:#fafaf5;}
+.up-item:hover{border-color:var(--gold);background:var(--gold-pale);}
+.up-item.done{border:1.5px solid #5a8a5a;background:#f0fff4;}
+.up-ico{width:32px;height:32px;background:var(--offwhite);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.up-info{flex:1;min-width:0;}
+.up-info .dn{font-size:12px;font-weight:700;color:#1a1a1a;font-family:Arial,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.up-info .dh{font-size:10px;color:var(--muted);margin-top:2px;font-family:Arial,sans-serif;}
+.up-bdg{font-size:9px;padding:2px 8px;border-radius:10px;font-family:Arial,sans-serif;font-weight:700;flex-shrink:0;}
+.rbdg{background:#f5e8c0;color:#7a5a10;}.obdg{background:#f0f0f0;color:#888;}
+.hfil{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;}
+@media(max-width:560px){.tgrid{grid-template-columns:repeat(2,1fr);}}
+.tcrd{border:2px solid #ddd;border-radius:10px;padding:14px 8px;text-align:center;cursor:pointer;transition:all .2s;background:#fff;}
+.tcrd:hover{border-color:var(--gold);background:var(--gold-pale);}
+.tcrd.sel{border-color:var(--burg);background:#fff5f5;}
+.ticon{font-size:24px;display:block;margin-bottom:6px;}
+.tlbl{font-size:11px;font-weight:700;color:#1a1a1a;text-transform:uppercase;letter-spacing:.5px;font-family:Arial,sans-serif;}
+.fee-alert{background:var(--gold-pale);border:1px solid var(--gold);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:15px;font-size:12px;color:#5a4010;font-family:Arial,sans-serif;line-height:1.6;}
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;}
+@media(max-width:560px){.fgrid{grid-template-columns:1fr;}}
+.fcrd{border:2px solid #ddd;border-radius:10px;padding:18px 13px;text-align:center;cursor:pointer;transition:all .2s;background:#fff;}
+.fcrd:hover{border-color:var(--gold);}
+.fcrd.sel{border-color:var(--burg);background:#fff5f5;}
+.fprice{font-size:28px;font-weight:900;color:var(--burg);font-family:Arial,sans-serif;}
+.flbl{font-size:12px;font-weight:700;color:#1a1a1a;margin:4px 0;font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:.5px;}
+.fdesc{font-size:11px;color:var(--muted);font-family:Arial,sans-serif;}
+.btn{padding:10px 22px;border-radius:var(--r);font-size:12px;font-weight:700;cursor:pointer;border:none;font-family:Arial,sans-serif;letter-spacing:.5px;text-transform:uppercase;transition:all .2s;}
+.btn-burg{background:var(--burg);color:#fff;}
+.btn-burg:hover{background:var(--burg-light);}
+.btn-gold{background:var(--gold);color:var(--onyx);}
+.btn-gold:hover{background:var(--gold-light);}
+.btn-out{background:transparent;color:var(--muted);border:1.5px solid #ddd;}
+.btn-out:hover{border-color:var(--gold);color:var(--gold);}
+.brow{display:flex;justify-content:space-between;align-items:center;margin-top:22px;}
+.ec-box{border:1px solid #e2d9c5;border-radius:8px;padding:14px;margin-bottom:11px;background:var(--cream);}
+.ec-title{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:11px;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:space-between;}
+.skip{font-size:10px;color:#bbb;cursor:pointer;font-family:Arial,sans-serif;text-decoration:underline;font-weight:400;text-transform:none;}
+.skip:hover{color:var(--gold);}
+.divider{border:none;border-top:1px solid #e2d9c5;margin:16px 0;}
+.sec-lbl{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:9px;font-family:Arial,sans-serif;}
+.exc-q{font-size:14px;font-family:Arial,sans-serif;color:#1a1a1a;margin-bottom:16px;font-weight:600;line-height:1.5;}
+.exc-yn{display:flex;gap:12px;margin-bottom:20px;}
+.yn-btn{flex:1;border:2px solid #ddd;border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all .2s;background:#fff;font-family:Arial,sans-serif;}
+.yn-btn:hover{border-color:var(--gold);background:var(--gold-pale);}
+.yn-btn.sel-yes{border-color:var(--burg);background:#fff5f5;}
+.yn-btn.sel-no{border-color:#2e7d32;background:#f0fff4;}
+.yn-icon{font-size:28px;display:block;margin-bottom:6px;}
+.yn-lbl{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+.exc-types{display:none;margin-top:4px;}
+.exc-types.show{display:block;}
+.exc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px;}
+@media(max-width:500px){.exc-grid{grid-template-columns:1fr;}}
+.exc-card{border:2px solid #ddd;border-radius:10px;padding:14px 12px;cursor:pointer;transition:all .2s;background:#fff;display:flex;align-items:center;gap:10px;}
+.exc-card:hover{border-color:var(--gold);background:var(--gold-pale);}
+.exc-card.sel{border-color:var(--burg);background:#fff5f5;}
+.exc-card .exc-icon{font-size:20px;flex-shrink:0;}
+.exc-card .exc-info .exc-name{font-size:12px;font-weight:700;color:#1a1a1a;font-family:Arial,sans-serif;}
+.exc-card .exc-info .exc-desc{font-size:10px;color:var(--muted);font-family:Arial,sans-serif;margin-top:2px;}
+.exc-note{margin-top:12px;}
+.care-section{margin-top:20px;padding-top:20px;border-top:1px solid #e2d9c5;}
+.care-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-bottom:14px;}
+@media(max-width:560px){.care-grid{grid-template-columns:1fr;}}
+.care-card{border:2px solid #ddd;border-radius:10px;padding:16px 10px;text-align:center;cursor:pointer;transition:all .2s;background:#fff;}
+.care-card:hover{border-color:var(--gold);background:var(--gold-pale);}
+.care-card.sel{border-color:var(--burg);background:#fff5f5;}
+.care-icon{font-size:22px;display:block;margin-bottom:5px;}
+.care-lbl{font-size:11px;font-weight:700;color:#1a1a1a;text-transform:uppercase;letter-spacing:.5px;font-family:Arial,sans-serif;}
+.care-price{font-size:13px;color:var(--burg);font-weight:900;font-family:Arial,sans-serif;margin-top:3px;}
+.rv-sec-hdr{font-size:10px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;border-bottom:2px solid var(--gold);padding-bottom:5px;margin-bottom:11px;font-family:Arial,sans-serif;}
+.rv-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #f0ece0;font-family:Arial,sans-serif;font-size:12px;}
+.rv-row .k{color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.3px;font-size:10px;}
+.rv-row .v{color:#1a1a1a;text-align:right;max-width:55%;}
+.decl{background:var(--gold-pale);border:1px solid var(--gold);border-radius:8px;padding:13px 17px;margin-bottom:15px;font-family:Arial,sans-serif;font-size:12px;color:#5a4010;line-height:1.7;}
+.err-box{background:#fff0f0;border:1px solid #e57373;border-left:4px solid var(--burg);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:14px;font-family:Arial,sans-serif;font-size:13px;color:var(--burg);line-height:1.6;display:none;}
+.submitting{text-align:center;padding:50px 20px;}
+.spin{width:50px;height:50px;border:4px solid var(--gold-pale);border-top:4px solid var(--gold);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 18px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.submitting p{font-family:Arial,sans-serif;font-size:14px;color:var(--muted);line-height:1.7;}
+.sub-step{font-size:12px;color:var(--gold);font-family:Arial,sans-serif;margin-top:10px;font-weight:700;min-height:20px;}
+.success-page{text-align:center;padding:52px 20px;}
+.success-crest{width:84px;height:84px;background:var(--burg);border:3px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:38px;}
+.success-page h2{color:var(--burg);font-size:23px;margin-bottom:7px;}
+.success-page p{color:var(--muted);font-size:13px;font-family:Arial,sans-serif;max-width:400px;margin:0 auto 22px;line-height:1.7;}
+.ref-num{background:var(--onyx);color:var(--gold);padding:10px 20px;border-radius:8px;font-family:Arial,sans-serif;font-size:16px;font-weight:900;display:inline-block;letter-spacing:3px;margin-bottom:22px;border:1px solid var(--gold);}
+.verse{background:var(--gold-pale);border-left:4px solid var(--gold);padding:14px 20px;border-radius:0 8px 8px 0;max-width:420px;margin:0 auto 20px;text-align:left;}
+.verse em{font-style:italic;font-size:13px;color:#5a4010;display:block;margin-bottom:4px;line-height:1.7;}
+.verse span{font-size:11px;color:var(--gold);font-family:Arial,sans-serif;font-weight:700;letter-spacing:.5px;}
+.drive-confirm{background:#e8f5e9;border:1px solid #5a8a5a;border-left:4px solid #2e7d32;border-radius:0 8px 8px 0;padding:12px 16px;max-width:420px;margin:12px auto 0;font-family:Arial,sans-serif;font-size:12px;color:#1b5e20;line-height:1.6;display:none;}
+.drive-info{background:var(--cream);border:1px solid #e2d9c5;border-radius:8px;padding:13px 16px;margin-bottom:14px;font-family:Arial,sans-serif;font-size:12px;color:var(--muted);line-height:1.7;}
+.drive-info strong{color:var(--burg);}
+.pw-gate{background:var(--offwhite);min-height:calc(100vh - 114px);display:flex;align-items:center;justify-content:center;padding:40px 20px;}
+.pw-box{background:#fff;border-radius:16px;border:1px solid #e2d9c5;padding:42px 38px;max-width:390px;width:100%;text-align:center;}
+.pw-crest{width:66px;height:66px;background:var(--burg);border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 17px;font-size:30px;}
+.pw-box h2{color:var(--burg);font-size:19px;margin-bottom:5px;letter-spacing:1px;}
+.pw-box p{color:var(--muted);font-size:12px;font-family:Arial,sans-serif;margin-bottom:26px;line-height:1.6;}
+.pw-field{position:relative;margin-bottom:13px;}
+.pw-field input{width:100%;border:1.5px solid #ddd;border-radius:var(--r);padding:12px 42px 12px 14px;font-size:15px;font-family:Arial,sans-serif;color:#1a1a1a;outline:none;transition:border .2s;text-align:center;letter-spacing:4px;}
+.pw-field input:focus{border-color:var(--gold);}
+.pw-toggle{position:absolute;right:13px;top:50%;transform:translateY(-50%);cursor:pointer;color:var(--muted);font-size:12px;font-family:Arial,sans-serif;user-select:none;}
+.pw-err{color:var(--burg);font-size:12px;font-family:Arial,sans-serif;margin-bottom:13px;min-height:18px;}
+.pw-btn{width:100%;padding:13px;background:var(--burg);color:#fff;border:none;border-radius:var(--r);font-size:13px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;transition:background .2s;}
+.pw-btn:hover{background:var(--burg-light);}
+.pw-hint{font-size:11px;color:#ccc;font-family:Arial,sans-serif;margin-top:15px;}
+.pw-shake{animation:shake .4s ease;}
+@keyframes shake{0%,100%{transform:translateX(0);}20%,60%{transform:translateX(-9px);}40%,80%{transform:translateX(9px);}}
+.dash-hdr{background:var(--onyx);padding:16px 24px;border-bottom:2px solid var(--gold);display:flex;align-items:center;justify-content:space-between;}
+.dash-hdr-left h2{color:var(--gold);font-size:16px;letter-spacing:2px;text-transform:uppercase;font-family:Arial,sans-serif;font-weight:900;}
+.dash-hdr-left p{color:#888;font-size:11px;margin-top:3px;font-family:Arial,sans-serif;}
+.logout-btn{padding:7px 15px;border:1px solid #555;border-radius:var(--r);background:transparent;color:#aaa;font-size:11px;cursor:pointer;font-family:Arial,sans-serif;letter-spacing:.5px;text-transform:uppercase;transition:all .2s;}
+.logout-btn:hover{border-color:var(--burg);color:var(--burg);}
+.sync-bar{background:var(--onyx2);padding:8px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #333;}
+.sync-dot{width:8px;height:8px;border-radius:50%;background:#27ae60;flex-shrink:0;}
+.sync-dot.loading{background:var(--gold);animation:pulse 1s infinite;}
+.sync-dot.err{background:#e74c3c;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+.sync-txt{font-size:11px;color:#aaa;font-family:Arial,sans-serif;}
+.sync-btn{margin-left:auto;padding:4px 11px;border-radius:6px;border:1px solid #444;background:transparent;color:#aaa;font-size:10px;cursor:pointer;font-family:Arial,sans-serif;}
+.sync-btn:hover{border-color:var(--gold);color:var(--gold);}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:17px;}
+@media(max-width:620px){.kpi-grid{grid-template-columns:repeat(2,1fr);}}
+.kpi{background:#fff;border-radius:10px;padding:15px;border:1px solid #e2d9c5;}
+.kpi-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-family:Arial,sans-serif;margin-bottom:5px;}
+.kpi-val{font-size:30px;font-weight:900;color:var(--onyx);font-family:Arial,sans-serif;line-height:1;}
+.kpi-sub{font-size:10px;color:var(--muted);margin-top:4px;font-family:Arial,sans-serif;}
+.kpi-acc{font-size:11px;margin-top:6px;font-family:Arial,sans-serif;font-weight:700;color:var(--burg);}
+.frow{display:flex;gap:8px;margin-bottom:15px;align-items:center;flex-wrap:wrap;}
+.fbtn{padding:5px 13px;border-radius:20px;border:1.5px solid #ddd;font-size:11px;cursor:pointer;font-family:Arial,sans-serif;background:#fff;transition:all .2s;color:#888;}
+.fbtn.active{background:var(--burg);color:#fff;border-color:var(--burg);}
+.fbtn:hover:not(.active){border-color:var(--gold);color:var(--gold);}
+.flbl-sm{font-size:10px;font-family:Arial,sans-serif;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:17px;}
+@media(max-width:560px){.charts-row{grid-template-columns:1fr;}}
+.chart-card{background:#fff;border-radius:10px;padding:15px;border:1px solid #e2d9c5;}
+.chart-title{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:13px;font-family:Arial,sans-serif;}
+.bar-row{display:flex;align-items:center;gap:7px;margin-bottom:8px;}
+.bar-lbl{font-size:10px;color:#1a1a1a;font-family:Arial,sans-serif;width:78px;text-align:right;flex-shrink:0;}
+.bar-trk{flex:1;background:var(--offwhite);border-radius:4px;height:15px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:7px;font-size:9px;font-weight:700;color:#fff;font-family:Arial,sans-serif;}
+.bar-ct{font-size:10px;color:var(--muted);width:22px;text-align:right;font-family:Arial,sans-serif;}
+.donut-row{display:flex;justify-content:space-around;flex-wrap:wrap;gap:9px;padding:6px 0;}
+.donut-item{text-align:center;}
+.donut-circle{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;font-family:Arial,sans-serif;margin:0 auto 5px;}
+.donut-lbl{font-size:9px;color:var(--muted);font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:.5px;}
+.tbl-wrap{background:#fff;border-radius:10px;overflow:hidden;border:1px solid #e2d9c5;}
+.tbl-hdr{background:var(--onyx);padding:12px 15px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--gold);}
+.tbl-hdr h3{color:var(--gold);font-size:12px;letter-spacing:1px;text-transform:uppercase;font-family:Arial,sans-serif;font-weight:700;}
+.tbl-hdr-right{display:flex;gap:8px;align-items:center;}
+table{width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:11px;table-layout:fixed;}
+th{background:#f8f5ee;padding:9px 10px;text-align:left;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-size:10px;border-bottom:1px solid #e2d9c5;}
+td{padding:9px 10px;border-bottom:1px solid #f5f0e8;color:#1a1a1a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:var(--gold-pale);}
+.gbdg{display:inline-block;padding:2px 7px;border-radius:10px;font-size:9px;font-weight:700;}
+.ge{background:#e3f2fd;color:#1565c0;}.gm{background:#f3e5f5;color:#6a1b9a;}.gh{background:#e8f5e9;color:#2e7d32;}
+.tpill{display:inline-block;padding:2px 7px;border-radius:10px;font-size:9px;font-weight:600;background:var(--gold-pale);color:#7a5a10;}
+.sdot2{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:3px;}
+.snew{background:#27ae60;}.spend{background:#f39c12;}.scomp{background:var(--burg);}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-crest">
+    <svg viewBox="0 0 34 34" fill="none" width="34" height="34">
+      <polygon points="17,3 21,11 30,11 23,17 26,26 17,21 8,26 11,17 4,11 13,11" fill="#C9A84C" opacity=".92"/>
+      <rect x="14" y="15" width="6" height="11" fill="#fff" rx="1"/>
+      <rect x="12" y="18" width="10" height="2.5" fill="#fff"/>
+    </svg>
+  </div>
+  <div class="hdr-text">
+    <h1>Prizemen Christian Academy</h1>
+    <p>FORT LAUDERDALE, FL &nbsp;·&nbsp; 2026–2027 ENROLLMENT</p>
+  </div>
+  <div class="hdr-right">
+    <div class="tag">ENTER TO LEARN · LEAVE TO LEAD</div>
+    <div class="yr">Year of the Comeback &nbsp;·&nbsp; Proverbs 24:16</div>
+  </div>
+</div>
+
+<div class="nav">
+  <div class="ntab active" id="tabForm" onclick="handleFormClick(this)">Student Registration</div>
+  <div class="ntab" id="tabDash" onclick="handleDashClick(this)">Admin Dashboard</div>
+</div>
+
+<div id="vForm" class="main">
+<div class="wrap">
+
+  <div class="progress">
+    <div class="sdot active" id="sd1">1</div><div class="sline" id="sl1"></div>
+    <div class="sdot" id="sd2">2</div><div class="sline" id="sl2"></div>
+    <div class="sdot" id="sd3">3</div><div class="sline" id="sl3"></div>
+    <div class="sdot" id="sd4">4</div><div class="sline" id="sl4"></div>
+    <div class="sdot" id="sd5">5</div><div class="sline" id="sl5"></div>
+    <div class="sdot" id="sd6">6</div><div class="sline" id="sl6"></div>
+    <div class="sdot" id="sd7">7</div><div class="sline" id="sl7"></div>
+    <div class="sdot" id="sd8">8</div>
+  </div>
+  <div class="slabels">
+    <div class="slbl">Student</div><div class="slbl">Parent</div><div class="slbl">Emergency</div>
+    <div class="slbl">Exceptionality</div><div class="slbl">Transport</div><div class="slbl">Aftercare</div>
+    <div class="slbl">Documents</div><div class="slbl">Review</div>
+  </div>
+
+  <!-- STEP 1: STUDENT -->
+  <div id="s1">
+    <div class="card">
+      <div class="card-hdr"><div class="sn">1</div><h2>Student Information</h2></div>
+      <div class="card-body">
+        <div class="g2">
+          <div class="fld"><label>First Name *</label><input id="sf" placeholder="First name"></div>
+          <div class="fld"><label>Last Name *</label><input id="sl" placeholder="Last name"></div>
+          <div class="fld"><label>Date of Birth *</label><input type="date" id="sdob"></div>
+          <div class="fld"><label>Age *</label><input type="number" id="sage" min="3" max="21" placeholder="Age"></div>
+          <div class="fld"><label>Grade Entering *</label>
+            <select id="sgrade"><option value="">Select grade...</option><option>Pre-K</option><option>Kindergarten</option><option>1st Grade</option><option>2nd Grade</option><option>3rd Grade</option><option>4th Grade</option><option>5th Grade</option><option>6th Grade</option><option>7th Grade</option><option>8th Grade</option><option>9th Grade</option><option>10th Grade</option><option>11th Grade</option><option>12th Grade</option></select>
+          </div>
+          <div class="fld"><label>Referred By <span class="opt">(optional)</span></label><input id="sref" placeholder="Name or organization"></div>
+          <div class="fld gf"><label>Home Address *</label><input id="saddr" placeholder="Street address, City, State, ZIP"></div>
+          <div class="fld"><label>Phone *</label><input type="tel" id="sph" placeholder="(954) 000-0000"></div>
+          <div class="fld"><label>Email <span class="opt">(student, if applicable)</span></label><input type="email" id="sem" placeholder="student@email.com"></div>
+        </div>
+      </div>
+    </div>
+    <div class="brow"><span></span><button class="btn btn-burg" onclick="go(2)">Next: Parent Info →</button></div>
+  </div>
+
+  <!-- STEP 2: PARENT -->
+  <div id="s2" style="display:none">
+    <div class="card">
+      <div class="card-hdr"><div class="sn">2</div><h2>Parent / Guardian Information</h2></div>
+      <div class="card-body">
+        <div class="g2">
+          <div class="fld"><label>Full Name *</label><input id="pn" placeholder="Full name"></div>
+          <div class="fld"><label>Relationship *</label>
+            <select id="pr"><option value="">Select...</option><option>Mother</option><option>Father</option><option>Legal Guardian</option><option>Grandparent</option><option>Other</option></select>
+          </div>
+          <div class="fld"><label>Phone *</label><input type="tel" id="pph" placeholder="(954) 000-0000"></div>
+          <div class="fld"><label>Email *</label><input type="email" id="pem" placeholder="parent@email.com"></div>
+          <div class="fld gf"><label>Address *</label><input id="paddr" placeholder="Street address, City, State, ZIP"></div>
+        </div>
+      </div>
+    </div>
+    <div class="brow"><button class="btn btn-out" onclick="go(1)">← Back</button><button class="btn btn-burg" onclick="go(3)">Next: Emergency Contacts →</button></div>
+  </div>
+
+  <!-- STEP 3: EMERGENCY CONTACTS -->
+  <div id="s3" style="display:none">
+    <div class="card">
+      <div class="card-hdr"><div class="sn">3</div><h2>Emergency Contacts</h2></div>
+      <div class="card-body">
+        <div class="ec-box">
+          <div class="ec-title"><span style="color:var(--burg);">● Emergency Contact 1</span><span class="skip" onclick="skipEC(1)">skip</span></div>
+          <div class="g3">
+            <div class="fld"><label>Full Name</label><input id="e1n" placeholder="Full name"></div>
+            <div class="fld"><label>Relationship</label><input id="e1r" placeholder="e.g. Aunt, Uncle"></div>
+            <div class="fld"><label>Phone</label><input type="tel" id="e1p" placeholder="(954) 000-0000"></div>
+          </div>
+        </div>
+        <div class="ec-box">
+          <div class="ec-title"><span style="color:var(--gold);">● Emergency Contact 2</span><span class="skip" onclick="skipEC(2)">skip</span></div>
+          <div class="g3">
+            <div class="fld"><label>Full Name</label><input id="e2n" placeholder="Full name"></div>
+            <div class="fld"><label>Relationship</label><input id="e2r" placeholder="e.g. Pastor, Neighbor"></div>
+            <div class="fld"><label>Phone</label><input type="tel" id="e2p" placeholder="(954) 000-0000"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="brow"><button class="btn btn-out" onclick="go(2)">← Back</button><button class="btn btn-burg" onclick="go(4)">Next: Learning Exceptionality →</button></div>
+  </div>
+
+  <!-- STEP 4: LEARNING EXCEPTIONALITY -->
+  <div id="s4" style="display:none">
+    <div class="card">
+      <div class="card-hdr"><div class="sn">4</div><h2>Learning Exceptionality</h2></div>
+      <div class="card-body">
+        <p class="exc-q">Does your scholar have a Learning Exceptionality or documented special education need?</p>
+        <div class="exc-yn">
+          <div class="yn-btn" id="excYesBtn" onclick="selExcYN('yes')">
+            <span class="yn-icon">✋</span>
+            <div class="yn-lbl" style="color:var(--burg);">Yes</div>
+          </div>
+          <div class="yn-btn" id="excNoBtn" onclick="selExcYN('no')">
+            <span class="yn-icon">✅</span>
+            <div class="yn-lbl" style="color:#2e7d32;">No</div>
+          </div>
+        </div>
+        <div class="exc-types" id="excTypes">
+          <div class="sec-lbl">Select all that apply</div>
+          <div class="exc-grid">
+            <div class="exc-card" id="exc-504" onclick="toggleExc('504')">
+              <div class="exc-icon">📋</div>
+              <div class="exc-info"><div class="exc-name">504 Plan</div><div class="exc-desc">Accommodation plan under Section 504</div></div>
+            </div>
+            <div class="exc-card" id="exc-iep" onclick="toggleExc('iep')">
+              <div class="exc-icon">📝</div>
+              <div class="exc-info"><div class="exc-name">IEP</div><div class="exc-desc">Individualized Education Program</div></div>
+            </div>
+            <div class="exc-card" id="exc-dr" onclick="toggleExc('dr')">
+              <div class="exc-icon">🩺</div>
+              <div class="exc-info"><div class="exc-name">Doctor's Diagnosis</div><div class="exc-desc">Formal diagnosis from a licensed physician</div></div>
+            </div>
+            <div class="exc-card" id="exc-other" onclick="toggleExc('other')">
+              <div class="exc-icon">📌</div>
+              <div class="exc-info"><div class="exc-name">Other</div><div class="exc-desc">Other documented learning need</div></div>
+            </div>
+          </div>
+          <div class="exc-note">
+            <div class="fld"><label>Additional Notes <span class="opt">(optional)</span></label>
+              <input id="excNote" placeholder="Describe the exceptionality or any additional context...">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="brow"><button class="btn btn-out" onclick="go(3)">← Back</button><button class="btn btn-burg" onclick="go(5)">Next: Transportation →</button></div>
+  </div>
+
+  <!-- STEP 5: TRANSPORTATION -->
+  <div id="s5" style="display:none">
+    <div class="card">
+      <div class="card-hdr"><div class="sn">5</div><h2>Transportation</h2></div>
+      <div class="card-body">
+        <p style="font-size:13px;color:var(--muted);font-family:Arial,sans-serif;margin-bottom:18px;">How will your student travel to and from Prizemen Christian Academy daily?</p>
+        <div class="tgrid">
+          <div class="tcrd" onclick="selT('walk',this)"><span class="ticon">🚶</span><div class="tlbl">Walk</div></div>
+          <div class="tcrd" onclick="selT('pickup',this)"><span class="ticon">🚗</span><div class="tlbl">Parent Pick-Up</div></div>
+          <div class="tcrd" onclick="selT('rideshare',this)"><span class="ticon">🚕</span><div class="tlbl">Rideshare</div></div>
+          <div class="tcrd" onclick="selT('need',this)"><span class="ticon">🚌</span><div class="tlbl">Need Transportation</div></div>
+        </div>
+        <div id="feeSection" style="display:none;margin-top:22px;">
+          <div class="fee-alert"><strong>Transportation Assistance Available</strong><br>We want every student here. Select the weekly plan that works best for your family.</div>
+          <div class="fgrid">
+            <div class="fcrd" onclick="selF('full',this)"><div class="fprice">$40</div><div class="flbl">Full Service</div><div class="fdesc">Pick-up and drop-off, weekly</div></div>
+            <div class="fcrd" onclick="selF('pickup25',this)"><div class="fprice">$25</div><div class="flbl">Pick-Up Only</div><div class="fdesc">Morning pick-up only, weekly</div></div>
+            <div class="fcrd" onclick="selF('dropoff25',this)"><div class="fprice">$25</div><div class="flbl">Drop-Off Only</div><div class="fdesc">Afternoon drop-off only, weekly</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="brow"><button class="btn btn-out" onclick="go(4)">← Back</button><button class="btn btn-burg" onclick="go(6)">Next: Aftercare →</button></div>
+  </div>
+
+  <!-- STEP 6: AFTERCARE & BEFORE CARE -->
+  <div id="s6" style="display:none">
+    <div class="card">
+      <div class="card-hdr"><div class="sn">6</div><h2>Aftercare & Before Care</h2></div>
+      <div class="card-body">
+        <div class="sec-lbl">Aftercare</div>
+        <p style="font-size:13px;color:var(--muted);font-family:Arial,sans-serif;margin-bottom:16px;">Will your scholar need aftercare services following the school day?</p>
+        <div class="care-grid" id="aftercareGrid">
+          <div class="care-card" onclick="selAftercare('full',this)">
+            <span class="care-icon">🌟</span>
+            <div class="care-lbl">Full Aftercare</div>
+            <div class="care-price">$85 / week</div>
+            <div style="font-size:10px;color:var(--muted);font-family:Arial,sans-serif;margin-top:3px;">Complete aftercare program</div>
+          </div>
+          <div class="care-card" onclick="selAftercare('none',this)">
+            <span class="care-icon">🏠</span>
+            <div class="care-lbl">No Aftercare</div>
+            <div class="care-price" style="color:#2e7d32;">No Fee</div>
+            <div style="font-size:10px;color:var(--muted);font-family:Arial,sans-serif;margin-top:3px;">Parent picks up at dismissal</div>
+          </div>
+          <div class="care-card" onclick="selAftercare('skip',this)">
+            <span class="care-icon">⏭</span>
+            <div class="care-lbl">Decide Later</div>
+            <div class="care-price" style="color:#999;">TBD</div>
+            <div style="font-size:10px;color:var(--muted);font-family:Arial,sans-serif;margin-top:3px;">I will let the school know</div>
+          </div>
+        </div>
+        <div class="care-section">
+          <div class="sec-lbl">Before Care</div>
+          <p style="font-size:13px;color:var(--muted);font-family:Arial,sans-serif;margin-bottom:16px;">Will your scholar need before care? Before care begins one hour prior to the school day start time.</p>
+          <div class="care-grid" id="beforecareGrid">
+            <div class="care-card" onclick="selBeforecare('yes',this)">
+              <span class="care-icon">🌅</span>
+              <div class="care-lbl">Before Care</div>
+              <div class="care-price">$40 / week</div>
+              <div style="font-size:10px;color:var(--muted);font-family:Arial,sans-serif;margin-top:3px;">One hour before school starts</div>
+            </div>
+            <div class="care-card" onclick="selBeforecare('no',this)">
+              <span class="care-icon">🚫</span>
+              <div class="care-lbl">Not Needed</div>
+              <div class="care-price" style="color:#2e7d32;">No Fee</div>
+              <div style="font-size:10px;color:var(--muted);font-family:Arial,sans-serif;margin-top:3px;">Student arrives at school start</div>
+            </div>
+            <div class="care-card" onclick="selBeforecare('skip',this)">
+              <span class="care-icon">⏭</span>
+              <div class="care-lbl">Decide Later</div>
+              <div class="care-price" style="color:#999;">TBD</div>
+              <div style="font-size:10px;color:var(--muted);font-family:Arial,sans-serif;margin-top:3px;">I will let the school know</div>
+            </div>
+          </div>
+        </div>
+        <div id="careTotal" style="display:none;margin-top:16px;background:var(--onyx);border-radius:10px;padding:14px 18px;flex-direction:row;justify-content:space-between;align-items:center;">
+          <div style="color:#aaa;font-size:12px;font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:1px;">Est. Weekly Care Total</div>
+          <div id="careTotalAmt" style="color:var(--gold);font-size:22px;font-weight:900;font-family:Arial,sans-serif;">$0</div>
+        </div>
+      </div>
+    </div>
+    <div class="brow"><button class="btn btn-out" onclick="go(5)">← Back</button><button class="btn btn-burg" onclick="go(7)">Next: Upload Documents →</button></div>
+  </div>
+
+  <!-- STEP 7: DOCUMENT UPLOAD -->
+  <div id="s7" style="display:none">
+    <div class="card">
+      <div class="card-hdr"><div class="sn">7</div><h2>Document Upload</h2></div>
+      <div class="card-body">
+        <div class="drive-info"><strong>Documents upload directly to PCA's secure Google Drive.</strong><br>Files are organized automatically by student name. Accepted: PDF, JPG, PNG. Max 10MB per file.</div>
+        <div class="sec-lbl">Required Documents</div>
+        <div class="upload-grid" id="reqD"></div>
+        <div class="divider"></div>
+        <div class="sec-lbl">Optional Documents <span style="font-weight:400;text-transform:none;color:#bbb;">(submit when available)</span></div>
+        <div class="upload-grid" id="optD"></div>
+      </div>
+    </div>
+    <div class="brow"><button class="btn btn-out" onclick="go(6)">← Back</button><button class="btn btn-burg" onclick="go(8)">Review & Submit →</button></div>
+  </div>
+
+  <!-- STEP 8: REVIEW -->
+  <div id="s8" style="display:none">
+    <div class="card">
+      <div class="card-hdr"><div class="sn">8</div><h2>Review & Submit</h2></div>
+      <div id="rvBody" class="card-body"></div>
+    </div>
+    <div class="decl"><strong>Declaration:</strong> By submitting this form, I affirm that all information provided is accurate and complete, and I agree to abide by the policies, standards, and Christian values of Prizemen Christian Academy for the 2026–2027 academic year.</div>
+    <div id="errBox" class="err-box"></div>
+    <div class="brow"><button class="btn btn-out" onclick="go(7)">← Back</button><button class="btn btn-gold" onclick="submitForm()">✓ Submit Registration</button></div>
+  </div>
+
+  <div id="sSubmitting" style="display:none">
+    <div class="card"><div class="card-body">
+      <div class="submitting">
+        <div class="spin"></div>
+        <p>Submitting your registration to Prizemen Christian Academy...<br>Please do not close this window.</p>
+        <div class="sub-step" id="subStep">Sending registration data...</div>
+      </div>
+    </div></div>
+  </div>
+
+  <div id="sSuccess" style="display:none">
+    <div class="card"><div class="card-body">
+      <div class="success-page">
+        <div class="success-crest">🦁</div>
+        <h2>Registration Received!</h2>
+        <p>We are honored to partner with your family on this journey. Our team will contact you within 2–3 business days to confirm enrollment.</p>
+        <div class="ref-num" id="refNum">PCA-2026-0001</div>
+        <div class="verse">
+          <em>"For a righteous man falls seven times, and rises again..."</em>
+          <span>— Proverbs 24:16 &nbsp;·&nbsp; The Year of the Comeback</span>
+        </div>
+        <div class="drive-confirm" id="driveConfirm">✅ <strong>Documents uploaded</strong> to PCA's secure Google Drive successfully.</div>
+      </div>
+    </div></div>
+  </div>
+</div>
+</div>
+
+<!-- PASSWORD GATE -->
+<div id="vPwGate" style="display:none">
+  <div class="pw-gate">
+    <div class="pw-box" id="pwBox">
+      <div class="pw-crest">🔐</div>
+      <h2>Admin Access</h2>
+      <p>This area is restricted to Prizemen Christian Academy administration only. Enter your credentials to continue.</p>
+      <div class="pw-field">
+        <input type="password" id="pwInput" placeholder="Enter password" onkeydown="if(event.key==='Enter')checkPw()">
+        <span class="pw-toggle" onclick="togglePw()" id="pwToggle">show</span>
+      </div>
+      <div class="pw-err" id="pwErr"></div>
+      <button class="pw-btn" onclick="checkPw()">Access Dashboard</button>
+      <div class="pw-hint">Authorized staff only &nbsp;·&nbsp; PCA 2026–2027</div>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="vDash" style="display:none">
+  <div class="dash-hdr">
+    <div class="dash-hdr-left">
+      <h2>Registration Dashboard — KPI Center</h2>
+      <p>Prizemen Christian Academy &nbsp;·&nbsp; 2026–2027 &nbsp;·&nbsp; Live Google Sheet Data</p>
+    </div>
+    <button class="logout-btn" onclick="logout()">⬡ Lock Dashboard</button>
+  </div>
+  <div class="sync-bar">
+    <div class="sync-dot" id="syncDot"></div>
+    <span class="sync-txt" id="syncTxt">Ready</span>
+    <button class="sync-btn" onclick="loadFromSheet()">↻ Refresh</button>
+  </div>
+  <div class="wrap">
+    <div class="frow">
+      <span class="flbl-sm">Period:</span>
+      <button class="fbtn active" onclick="setPer(this)">Today</button>
+      <button class="fbtn" onclick="setPer(this)">This Week</button>
+      <button class="fbtn" onclick="setPer(this)">This Quarter</button>
+      <button class="fbtn" onclick="setPer(this)">Annual</button>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi"><div class="kpi-lbl">Total Registrations</div><div class="kpi-val" id="kt">0</div><div class="kpi-sub">All submissions</div><div class="kpi-acc" id="kts">—</div></div>
+      <div class="kpi"><div class="kpi-lbl">Complete Files</div><div class="kpi-val" id="kc">0</div><div class="kpi-sub">All docs received</div><div class="kpi-acc" id="kcs">—</div></div>
+      <div class="kpi"><div class="kpi-lbl">Need Transport</div><div class="kpi-val" id="ktr">0</div><div class="kpi-sub">Paying transport fee</div><div class="kpi-acc" id="ktrs">—</div></div>
+      <div class="kpi"><div class="kpi-lbl">Weekly Revenue Est.</div><div class="kpi-val" id="kr">$0</div><div class="kpi-sub">Transport + Care fees</div><div class="kpi-acc" id="krs">—</div></div>
+    </div>
+    <div class="charts-row">
+      <div class="chart-card"><div class="chart-title">Registrations by Grade Band</div><div id="gchart"></div></div>
+      <div class="chart-card"><div class="chart-title">Transportation Breakdown</div><div class="donut-row" id="tchart"></div></div>
+    </div>
+    <div class="tbl-wrap">
+      <div class="tbl-hdr">
+        <h3>All Registrations</h3>
+        <div class="tbl-hdr-right">
+          <button class="btn btn-out" onclick="loadFromSheet()" style="padding:5px 10px;font-size:10px;color:#aaa;border-color:#444;">↻ Sync Sheet</button>
+          <button class="btn btn-gold" onclick="exportCSV()" style="padding:5px 12px;font-size:10px;">⬇ Export CSV</button>
+        </div>
+      </div>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead><tr>
+            <th style="width:85px">Ref #</th><th style="width:110px">Student</th>
+            <th style="width:80px">Grade</th><th style="width:100px">Parent</th>
+            <th style="width:90px">Phone</th><th style="width:70px">Transport</th>
+            <th style="width:75px">Aftercare</th><th style="width:75px">Before Care</th>
+            <th style="width:80px">Exceptionality</th>
+            <th style="width:60px">Docs</th><th style="width:60px">Status</th><th style="width:75px">Date</th>
+          </tr></thead>
+          <tbody id="rtBody"><tr><td colspan="12" style="text-align:center;color:#888;padding:28px;font-family:Arial,sans-serif;font-size:12px;">Click Sync Sheet to load registrations.</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var ENDPOINT='https://script.google.com/macros/s/AKfycbxUruh-zjAp-hDScHhD9XFM_mQ15WXO8d7Lr3yxoi-y4SjZ5Ga_s3qJlTh2CMiRTn_H/exec';
+var CSV_URL='https://docs.google.com/spreadsheets/d/e/2PACX-1vS0LQ20AvLf91JC_ZBBZ90zHRfP9U7iXLYczfDt3SfzWDkJBxlyaxb3s70ylYueb3xFZ39oRntrsVMv/pub?gid=0&single=true&output=csv';
+var PASS='Bloom26';
+var TOTAL_STEPS=8;
+var cur=1,selTrans='',selFee='',selAfterCare='',selBeforeCare='',excYN='',excTypes=[],uploads={},regs=[],authed=false,attempts=0,regCount=0;
+
+var RDOCS=[
+  {id:'id',name:'Government-Issued ID',hint:'Parent or guardian photo ID',icon:'🪪'},
+  {id:'birth',name:'Birth Certificate',hint:'Student birth certificate',icon:'📄'},
+  {id:'shots',name:'Immunization Record',hint:'Vaccination / shot record',icon:'💉'},
+  {id:'physical',name:'Physical Exam',hint:'Current physical on file',icon:'🩺'},
+  {id:'residence',name:'Proof of Residence',hint:'Official document with address',icon:'🏠'},
+  {id:'lease',name:'Lease Agreement',hint:'Current rental or mortgage doc',icon:'📋'},
+  {id:'lightbill',name:'Utility Bill',hint:'Within the last 2 months',icon:'💡'},
+  {id:'transcript',name:'Transcript / Report Card',hint:'Most recent academic record',icon:'📊'}
+];
+var ODOCSLIST=[
+  {id:'withdrawal',name:'Withdrawal Form',hint:'From previous school',icon:'📤'},
+  {id:'iep',name:'IEP Document',hint:'Individualized Education Plan',icon:'📝'}
+];
+
+function dHtml(d,req){
+  var up=uploads[d.id];
+  return '<div class="up-item'+(up?' done':'')+'" id="doc-'+d.id+'" onclick="trig(\''+d.id+'\')">'+
+    '<input class="hfil" type="file" accept=".pdf,.jpg,.jpeg,.png" onchange="hFile(\''+d.id+'\',this)">'+
+    '<div class="up-ico">'+d.icon+'</div>'+
+    '<div class="up-info"><div class="dn">'+d.name+'</div><div class="dh">'+(up?'✓ '+up:d.hint)+'</div></div>'+
+    '<span class="up-bdg '+(req?'rbdg':'obdg')+'">'+(req?'Required':'Optional')+'</span>'+
+  '</div>';
+}
+function renderDocs(){
+  document.getElementById('reqD').innerHTML=RDOCS.map(function(d){return dHtml(d,true);}).join('');
+  document.getElementById('optD').innerHTML=ODOCSLIST.map(function(d){return dHtml(d,false);}).join('');
+}
+function trig(id){var el=document.querySelector('#doc-'+id+' input[type=file]');if(el)el.click();}
+function hFile(id,inp){
+  if(inp.files&&inp.files[0]){
+    if(inp.files[0].size>10*1024*1024){alert('File too large. Maximum 10MB.');return;}
+    uploads[id]=inp.files[0].name;uploads[id+'_file']=inp.files[0];renderDocs();
+  }
+}
+function selT(type,el){selTrans=type;document.querySelectorAll('.tcrd').forEach(function(c){c.classList.remove('sel');});el.classList.add('sel');document.getElementById('feeSection').style.display=type==='need'?'block':'none';if(type!=='need')selFee='';}
+function selF(type,el){selFee=type;document.querySelectorAll('.fcrd').forEach(function(c){c.classList.remove('sel');});el.classList.add('sel');}
+function selExcYN(val){
+  excYN=val;
+  document.getElementById('excYesBtn').className='yn-btn'+(val==='yes'?' sel-yes':'');
+  document.getElementById('excNoBtn').className='yn-btn'+(val==='no'?' sel-no':'');
+  var types=document.getElementById('excTypes');
+  types.className='exc-types'+(val==='yes'?' show':'');
+  if(val==='no'){excTypes=[];document.querySelectorAll('.exc-card').forEach(function(c){c.classList.remove('sel');});}
+}
+function toggleExc(type){
+  var card=document.getElementById('exc-'+type);
+  if(card.classList.contains('sel')){card.classList.remove('sel');excTypes=excTypes.filter(function(t){return t!==type;});}
+  else{card.classList.add('sel');if(excTypes.indexOf(type)===-1)excTypes.push(type);}
+}
+function selAftercare(type,el){
+  selAfterCare=type;
+  document.getElementById('aftercareGrid').querySelectorAll('.care-card').forEach(function(c){c.classList.remove('sel');});
+  el.classList.add('sel');updateCareTotal();
+}
+function selBeforecare(type,el){
+  selBeforeCare=type;
+  document.getElementById('beforecareGrid').querySelectorAll('.care-card').forEach(function(c){c.classList.remove('sel');});
+  el.classList.add('sel');updateCareTotal();
+}
+function updateCareTotal(){
+  var total=0;
+  if(selAfterCare==='full')total+=85;
+  if(selBeforeCare==='yes')total+=40;
+  var box=document.getElementById('careTotal');
+  box.style.display=(selAfterCare||selBeforeCare)?'flex':'none';
+  document.getElementById('careTotalAmt').textContent='$'+total+'/wk';
+}
+function aftercareFee(){return selAfterCare==='full'?85:0;}
+function beforecareFee(){return selBeforeCare==='yes'?40:0;}
+function aftercareLabel(){return selAfterCare==='full'?'Full Aftercare – $85/wk':(selAfterCare==='none'?'No Aftercare':(selAfterCare==='skip'?'Decide Later':'Not selected'));}
+function beforecareLabel(){return selBeforeCare==='yes'?'Before Care – $40/wk':(selBeforeCare==='no'?'Not Needed':(selBeforeCare==='skip'?'Decide Later':'Not selected'));}
+function skipEC(n){['n','r','p'].forEach(function(f){var el=document.getElementById('e'+n+f);if(el){el.value='';el.disabled=!el.disabled;el.style.opacity=el.disabled?'0.3':'1';}});}
+function go(n){
+  var ce=document.getElementById('s'+cur);if(ce)ce.style.display='none';
+  cur=n;var ne=document.getElementById('s'+n);if(ne)ne.style.display='block';
+  updProg();if(n===7)renderDocs();if(n===8)renderReview();window.scrollTo(0,0);
+}
+function updProg(){
+  for(var i=1;i<=TOTAL_STEPS;i++){
+    var d=document.getElementById('sd'+i);if(!d)continue;
+    d.classList.remove('done','active');
+    if(i<cur){d.classList.add('done');d.innerHTML='✓';}
+    else if(i===cur){d.classList.add('active');d.innerHTML=i;}
+    else d.innerHTML=i;
+    if(i<TOTAL_STEPS){var l=document.getElementById('sl'+i);if(l)l.classList.toggle('done',i<cur);}
+  }
+}
+function g(id){return document.getElementById(id);}
+function v(id){return(g(id)&&g(id).value)||'';}
+function renderReview(){
+  var fMap={full:'Full Service – $40/wk',pickup25:'Pick-Up Only – $25/wk',dropoff25:'Drop-Off Only – $25/wk','':'N/A'};
+  var tMap={walk:'Walk',pickup:'Parent Pick-Up',rideshare:'Rideshare',need:'Needs Transportation','':'Not selected'};
+  var uploaded=[...RDOCS,...ODOCSLIST].filter(function(d){return uploads[d.id];});
+  var docsStr=uploaded.length?uploaded.map(function(d){return d.name;}).join(', '):'None uploaded yet';
+  var excStr=excYN==='no'?'None reported':(excYN==='yes'?(excTypes.length?excTypes.join(', ').toUpperCase():'Yes — type not specified'):'Not answered');
+  var totalWeekly=feeAmt(selFee)+aftercareFee()+beforecareFee();
+  g('rvBody').innerHTML=
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">'+
+    '<div><div class="rv-sec-hdr">Student</div>'+rr('Name',(v('sf')||'—')+' '+(v('sl')||''))+rr('DOB',v('sdob')||'—')+rr('Grade',v('sgrade')||'—')+rr('Address',v('saddr')||'—')+rr('Phone',v('sph')||'—')+rr('Referred By',v('sref')||'—')+'</div>'+
+    '<div><div class="rv-sec-hdr">Parent / Guardian</div>'+rr('Name',v('pn')||'—')+rr('Relationship',v('pr')||'—')+rr('Phone',v('pph')||'—')+rr('Email',v('pem')||'—')+rr('Address',v('paddr')||'—')+'</div></div>'+
+    '<div class="divider"></div>'+
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">'+
+    '<div><div class="rv-sec-hdr">Services & Weekly Fees</div>'+rr('Transportation',tMap[selTrans])+(selTrans==='need'?rr('Transport Plan',fMap[selFee]):'')+rr('Aftercare',aftercareLabel())+rr('Before Care',beforecareLabel())+rr('Est. Weekly Total','$'+totalWeekly+'/wk')+'</div>'+
+    '<div><div class="rv-sec-hdr">Learning Exceptionality</div>'+rr('Status',excStr)+(v('excNote')?rr('Notes',v('excNote')):'')+
+    '<div style="margin-top:14px;"><div class="rv-sec-hdr">Documents</div><div style="font-size:11px;font-family:Arial,sans-serif;color:#1a1a1a;line-height:1.9;">'+docsStr+'</div></div></div></div>';
+}
+function rr(k,val){return '<div class="rv-row"><span class="k">'+k+'</span><span class="v">'+val+'</span></div>';}
+function feeAmt(f){return f==='full'?40:(f==='pickup25'||f==='dropoff25'?25:0);}
+function feePlan(f){return f==='full'?'Full Service – $40/wk':(f==='pickup25'?'Pick-Up Only – $25/wk':(f==='dropoff25'?'Drop-Off Only – $25/wk':'N/A'));}
+function submitForm(){
+  regCount++;
+  var ref='PCA-2026-'+String(regCount).padStart(4,'0');
+  var studentName=(v('sf')+' '+v('sl')).trim()||'Unknown';
+  var excStr=excYN==='no'?'None':(excYN==='yes'?(excTypes.length?excTypes.join(', ').toUpperCase():'Yes-unspecified'):'Not answered');
+  var payload={
+    ref:ref,date:new Date().toLocaleDateString(),
+    studentFirst:v('sf'),studentLast:v('sl'),dob:v('sdob'),age:v('sage'),
+    grade:v('sgrade'),address:v('saddr'),studentPhone:v('sph'),studentEmail:v('sem'),
+    referredBy:v('sref'),parentName:v('pn'),parentRelationship:v('pr'),
+    parentPhone:v('pph'),parentEmail:v('pem'),parentAddress:v('paddr'),
+    transport:selTrans,transportPlan:selTrans==='need'?feePlan(selFee):'N/A',
+    weeklyFee:selTrans==='need'?feeAmt(selFee):0,
+    ec1Name:v('e1n'),ec1Relationship:v('e1r'),ec1Phone:v('e1p'),
+    ec2Name:v('e2n'),ec2Relationship:v('e2r'),ec2Phone:v('e2p'),
+    learningExceptionality:excStr,exceptionalityNotes:v('excNote'),
+    aftercare:aftercareLabel(),aftercareFeeAmt:aftercareFee(),
+    beforecare:beforecareLabel(),beforecareFeeAmt:beforecareFee(),
+    totalWeeklyFees:feeAmt(selFee)+aftercareFee()+beforecareFee(),
+    docsUploaded:RDOCS.filter(function(d){return uploads[d.id];}).length+' of 8 required',
+    status:RDOCS.filter(function(d){return uploads[d.id];}).length>=8?'complete':(Object.keys(uploads).filter(function(k){return !k.endsWith('_file');}).length>0?'pending':'new')
+  };
+  g('s8').style.display='none';g('errBox').style.display='none';
+  g('sSubmitting').style.display='block';g('subStep').textContent='Sending registration to Google Sheet...';
+  window.scrollTo(0,0);
+  fetch(ENDPOINT,{method:'POST',body:JSON.stringify(payload)})
+    .then(function(r){return r.json();})
+    .then(function(data){
+      if(data.result==='success'){
+        regs.push(Object.assign({},payload,{feeAmt:feeAmt(selFee)+aftercareFee()+beforecareFee()}));
+        g('refNum').textContent=ref;
+        var fileKeys=Object.keys(uploads).filter(function(k){return !k.endsWith('_file')&&uploads[k+'_file'];});
+        if(fileKeys.length>0){
+          g('subStep').textContent='Uploading '+fileKeys.length+' document'+(fileKeys.length>1?'s':'')+' to Google Drive...';
+          uploadFiles(studentName,ref,fileKeys,0,function(any){
+            g('sSubmitting').style.display='none';g('sSuccess').style.display='block';
+            if(any)g('driveConfirm').style.display='block';
+          });
+        } else {
+          g('sSubmitting').style.display='none';g('sSuccess').style.display='block';
+        }
+      } else {showErr('Sheet error: '+(data.message||'Unknown error.'));}
+    })
+    .catch(function(){showErr('Connection error. Please check your internet and try again.');});
+}
+function uploadFiles(studentName,ref,fileKeys,index,done){
+  if(index>=fileKeys.length){done(index>0);return;}
+  var key=fileKeys[index];var file=uploads[key+'_file'];
+  g('subStep').textContent='Uploading '+(index+1)+' of '+fileKeys.length+': '+file.name+'...';
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var b64=e.target.result.split(',')[1];
+    var payload={action:'uploadFile',studentName:studentName,ref:ref,docType:key,fileName:file.name,mimeType:file.type,fileData:b64};
+    fetch(ENDPOINT,{method:'POST',body:JSON.stringify(payload)})
+      .then(function(r){return r.json();})
+      .then(function(){uploadFiles(studentName,ref,fileKeys,index+1,done);})
+      .catch(function(){uploadFiles(studentName,ref,fileKeys,index+1,done);});
+  };
+  reader.readAsDataURL(file);
+}
+function showErr(msg){g('sSubmitting').style.display='none';g('s8').style.display='block';g('errBox').style.display='block';g('errBox').textContent=msg;window.scrollTo(0,0);}
+function handleFormClick(btn){showView('form',btn);}
+function handleDashClick(btn){authed?showDash(btn):showView('pwgate',btn);}
+function checkPw(){
+  var input=g('pwInput').value;attempts++;
+  if(input===PASS){authed=true;attempts=0;g('pwInput').value='';g('pwErr').textContent='';showDash(g('tabDash'));}
+  else{
+    g('pwErr').textContent=attempts>=3?'Too many attempts. Contact Dr. Everett or Ms. Floyd.':'Incorrect password. Please try again.';
+    var box=g('pwBox');box.classList.remove('pw-shake');void box.offsetWidth;box.classList.add('pw-shake');
+    g('pwInput').value='';g('pwInput').focus();
+  }
+}
+function togglePw(){var i=g('pwInput'),t=g('pwToggle');i.type=i.type==='password'?'text':'password';t.textContent=i.type==='password'?'show':'hide';}
+function logout(){authed=false;showView('form',g('tabForm'));}
+function showView(view,btn){
+  g('vForm').style.display='none';g('vPwGate').style.display='none';g('vDash').style.display='none';
+  document.querySelectorAll('.ntab').forEach(function(t){t.classList.remove('active');});
+  if(btn)btn.classList.add('active');
+  if(view==='form')g('vForm').style.display='block';
+  else if(view==='pwgate'){g('vPwGate').style.display='block';setTimeout(function(){var i=g('pwInput');if(i)i.focus();},100);}
+  else if(view==='dash')g('vDash').style.display='block';
+}
+function showDash(btn){showView('dash',btn);loadFromSheet();}
+function setSyncStatus(state,msg){var dot=g('syncDot'),txt=g('syncTxt');dot.className='sync-dot'+(state==='loading'?' loading':(state==='err'?' err':''));txt.textContent=msg;}
+function parseCSVRow(row){
+  var result=[],cur='',inQ=false;
+  for(var i=0;i<row.length;i++){var ch=row[i];if(ch==='"'){inQ=!inQ;}else if(ch===','&&!inQ){result.push(cur);cur='';}else{cur+=ch;}}
+  result.push(cur);return result;
+}
+function loadFromSheet(){
+  setSyncStatus('loading','Syncing with Google Sheet...');
+  fetch(CSV_URL)
+    .then(function(r){return r.text();})
+    .then(function(csv){
+      var lines=csv.split('\n').filter(function(l){return l.trim()!=='';});
+      if(lines.length<2){setSyncStatus('err','No data found in sheet');return;}
+      var headers=parseCSVRow(lines[0]);
+      var data=lines.slice(1).map(function(line){
+        var vals=parseCSVRow(line);var obj={};
+        headers.forEach(function(h,i){obj[h.trim()]=vals[i]?vals[i].trim():'';});
+        return obj;
+      }).filter(function(row){return row['Ref #']&&row['Ref #']!==''&&row['Ref #']!=='Ref #'&&row['Ref #']!=='TEST';});
+      regs=data.map(function(row){return{
+        ref:row['Ref #'],fn:row['Student First'],ln:row['Student Last'],
+        grade:row['Grade'],pn:row['Parent Name'],pph:row['Parent Phone'],
+        trans:row['Transport'],feeAmt:parseInt((row['Weekly Fee']||'0').replace(/\D/g,''))||0,
+        aftercare:row['Aftercare']||'—',beforecare:row['Before Care']||'—',
+        exceptionality:row['Learning Exceptionality']||'—',
+        docs:row['Docs Uploaded'],status:row['Status'],date:row['Date']
+      };});
+      regCount=regs.length;
+      setSyncStatus('ok','Synced · '+regs.length+' registration'+(regs.length!==1?'s':'')+' · '+new Date().toLocaleTimeString());
+      updDash();
+    })
+    .catch(function(){setSyncStatus('err','Could not reach Google Sheet — check connection');});
+}
+function setPer(btn){document.querySelectorAll('.fbtn').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');updDash();}
+function updDash(){
+  var tot=regs.length,comp=regs.filter(function(r){return r.status==='complete';}).length,
+      need=regs.filter(function(r){return r.trans==='need';}).length,
+      rev=regs.reduce(function(s,r){return s+(r.feeAmt||0);},0);
+  g('kt').textContent=tot;g('kts').textContent=tot>0?tot+' total submitted':'Awaiting first registration';
+  g('kc').textContent=comp;g('kcs').textContent=tot>0?Math.round(comp/tot*100)+'% completion rate':'—';
+  g('ktr').textContent=need;g('ktrs').textContent=need>0?Math.round(need/Math.max(tot,1)*100)+'% of families':'—';
+  g('kr').textContent='$'+rev;g('krs').textContent=rev>0?'Est. weekly income':'—';
+  renderGChart();renderTChart();renderTable();
+}
+function renderGChart(){
+  var b={'Pre-K–K':0,'Grades 1–5':0,'Grades 6–8':0,'Grades 9–12':0};
+  regs.forEach(function(r){
+    if(['Pre-K','Kindergarten'].indexOf(r.grade)>-1)b['Pre-K–K']++;
+    else if(['1st Grade','2nd Grade','3rd Grade','4th Grade','5th Grade'].indexOf(r.grade)>-1)b['Grades 1–5']++;
+    else if(['6th Grade','7th Grade','8th Grade'].indexOf(r.grade)>-1)b['Grades 6–8']++;
+    else b['Grades 9–12']++;
+  });
+  var mx=Math.max.apply(null,Object.values(b).concat([1]));
+  var cols=['#6B0F1A','#C9A84C','#2c3e50','#2e7d32'];
+  g('gchart').innerHTML=Object.entries(b).map(function(e,i){return '<div class="bar-row"><div class="bar-lbl">'+e[0]+'</div><div class="bar-trk"><div class="bar-fill" style="width:'+Math.max(e[1]/mx*100,e[1]>0?8:0)+'%;background:'+cols[i]+';">'+(e[1]>0?e[1]:'')+'</div></div><div class="bar-ct">'+e[1]+'</div></div>';}).join('');
+}
+function renderTChart(){
+  var c={walk:0,pickup:0,rideshare:0,need:0};
+  regs.forEach(function(r){if(c[r.trans]!==undefined)c[r.trans]++;});
+  var lbl={walk:'Walk',pickup:'Parent',rideshare:'Rideshare',need:'Need'};
+  var col=['#2e7d32','#1a5276','#6B0F1A','#C9A84C'],bg=['#e8f5e9','#e3f2fd','#fdecea','#f5ecd0'];
+  g('tchart').innerHTML=Object.entries(c).map(function(e,i){return '<div class="donut-item"><div class="donut-circle" style="background:'+bg[i]+';color:'+col[i]+';">'+e[1]+'</div><div class="donut-lbl">'+lbl[e[0]]+'</div></div>';}).join('');
+}
+function renderTable(){
+  var tb=g('rtBody');
+  if(!regs.length){tb.innerHTML='<tr><td colspan="12" style="text-align:center;color:#888;padding:28px;font-family:Arial,sans-serif;font-size:12px;">No registrations yet — click Sync Sheet.</td></tr>';return;}
+  var gc=function(gr){return['Pre-K','Kindergarten','1st Grade','2nd Grade','3rd Grade','4th Grade','5th Grade'].indexOf(gr)>-1?'ge':(['6th Grade','7th Grade','8th Grade'].indexOf(gr)>-1?'gm':'gh');};
+  tb.innerHTML=regs.map(function(r){
+    return '<tr><td style="color:var(--burg);font-weight:700;">'+(r.ref||'—')+'</td><td>'+(r.fn||'')+' '+(r.ln||'')+'</td><td><span class="gbdg '+gc(r.grade||'')+'">'+(r.grade||'—')+'</span></td><td>'+(r.pn||'—')+'</td><td>'+(r.pph||'—')+'</td><td><span class="tpill">'+(r.trans||'—')+'</span></td><td>'+(r.aftercare||'—')+'</td><td>'+(r.beforecare||'—')+'</td><td>'+(r.exceptionality||'—')+'</td><td>'+(r.docs||'—')+'</td><td><span class="sdot2 s'+(r.status||'new')+'"></span>'+(r.status||'new')+'</td><td>'+(r.date||'—')+'</td></tr>';
+  }).join('');
+}
+function exportCSV(){
+  if(!regs.length){alert('No registrations to export yet.');return;}
+  var h=['Ref #','First','Last','Grade','Parent','Phone','Transport','Aftercare','Before Care','Exceptionality','Docs','Status','Date'];
+  var rows=regs.map(function(r){return[r.ref,r.fn,r.ln,r.grade,r.pn,r.pph,r.trans,r.aftercare,r.beforecare,r.exceptionality,r.docs,r.status,r.date];});
+  var csv=[h].concat(rows).map(function(r){return r.map(function(c){return'"'+(c||'')+'"';}).join(',');}).join('\n');
+  var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download='PCA_Registrations_'+new Date().toLocaleDateString().replace(/\//g,'-')+'.csv';a.click();
+}
+renderDocs();
+</script>
+</body>
+</html>
